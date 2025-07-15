@@ -113,7 +113,6 @@
 //   );
 // }
 
-
 "use client";
 import React, { useEffect, useState } from "react";
 import { FaMusic, FaSearch } from "react-icons/fa";
@@ -152,11 +151,14 @@ export default function Home() {
     async function fetchNewReleases() {
       setLoading(true);
       try {
-        const res = await fetch("https://api.spotify.com/v1/browse/new-releases?country=US", {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
+        const res = await fetch(
+          "https://api.spotify.com/v1/browse/new-releases?country=US",
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
 
         const data = await res.json();
         console.log("New releases data:", data);
@@ -184,19 +186,23 @@ export default function Home() {
     const query = searchQuery.toLowerCase();
     const filtered = albums.filter((album) => {
       const albumName = album.name.toLowerCase();
-      const artistNames = album.artists.map((artist) => artist.name.toLowerCase()).join(", ");
+      const artistNames = album.artists
+        .map((artist) => artist.name.toLowerCase())
+        .join(", ");
       return albumName.includes(query) || artistNames.includes(query);
     });
     setFilteredAlbums(filtered);
   }, [searchQuery, albums]);
 
   return (
-    <div className="p-8 bg-black text-white min-h-screen">
+    <div className="p-2 pt-4 sm:p-8 bg-black text-white min-h-screen">
       <h1 className="text-xl sm:text-3xl font-bold mb-2 flex items-center gap-2">
         <FaMusic className="text-green-400" />
         Welcome to Olahhh&apos;s Music
       </h1>
-      <p className="text-gray-400 mb-6">Discover the latest Spotify new releases 🎧</p>
+      <p className="text-gray-400 mb-6">
+        Discover the latest Spotify new releases 🎧
+      </p>
 
       <div className="flex items-center mb-6 bg-gray-800 rounded-lg p-2">
         <FaSearch className="text-gray-400 ml-2" />
@@ -224,7 +230,9 @@ export default function Home() {
               alt={album.name}
               className="rounded mb-2"
             />
-            <p className="mb-2">By {album.artists.map((artist) => artist.name).join(", ")}</p>
+            <p className="mb-2">
+              By {album.artists.map((artist) => artist.name).join(", ")}
+            </p>
             <a
               href={album.external_urls.spotify}
               target="_blank"
@@ -234,7 +242,7 @@ export default function Home() {
               Open Album on Spotify
             </a>
 
-            <div className="mt-4">
+            <div className="mt-4 w-full max-w-[400px]">
               <iframe
                 src={`https://open.spotify.com/embed/album/${album.id}`}
                 width="100%"
