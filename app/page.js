@@ -195,7 +195,7 @@ export default function Home() {
   }, [searchQuery, albums]);
 
   return (
-    <div className="p-2 pt-4 sm:p-8 bg-black text-white min-h-screen">
+    <div className="p-2 pt-4 sm:p-8 bg-black text-white min-h-screen opacity-10">
       <h1 className="text-xl sm:text-3xl font-bold mb-2 flex items-center gap-2">
         <FaMusic className="text-green-400" />
         Welcome to Agsp Music
