@@ -198,7 +198,7 @@ export default function Home() {
     <div className="p-2 pt-4 sm:p-8 bg-black text-white min-h-screen">
       <h1 className="text-xl sm:text-3xl font-bold mb-2 flex items-center gap-2">
         <FaMusic className="text-green-400" />
-        Welcome to Agsp&apos;s Music
+        Welcome to Agsp Music
       </h1>
       <p className="text-gray-400 mb-6">
         Discover the latest Spotify new releases 🎧
