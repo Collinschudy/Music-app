@@ -12,7 +12,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Olahhh's Music",
+  title: "Agsp Music",
   description: "Enjoy new releases from spotify",
 };
 
